@@ -22,9 +22,9 @@ def get_tweets( latlong=None ):
 def get_lots_of_tweets( latlongs, names):
     """ Does pretty much what its long name suggests. """
     all_tweets = {}
-    total_time = 150
+    total_time = 160
     remaining_seconds = total_time
-    interval = 15 
+    interval = 20 
     while remaining_seconds > 0:
         added = 0
         new_tweets = []
@@ -67,8 +67,10 @@ locations = [[40.7127, -74.0059], [40.634525, -73.945806], [40.608628, -74.08661
 names = ['NY', 'Brooklyn', 'Staten Island', 'Queens', 'Bronx']
 all_time = 9000000000000000000
 while all_time > 0:
-    run(locations, names)
-    all_time -= 30
+    try:
+        run(locations, names)
+        all_time -= 30
+    except: pass
 
 '''    
 Brooklyn:

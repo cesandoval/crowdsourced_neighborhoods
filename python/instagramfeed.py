@@ -30,7 +30,8 @@ def getfeed():
 		counter += 1
 	with open('instagram/feed'+t+'.json','a') as f: 
 	 	json.dump(data, f)
-getfeed()
+try: getfeed()
+except: pass
 
 # t = threading.Timer(60.0, getfeed)
 # t.start()

@@ -15,7 +15,7 @@ redirect = 'http://sg20141.sb02.stations.graphenedb.com:24789/browser/'
 
 # Set some query parameters
 #ll = '40.7127, -74.0059' #NY
-total_time = 150 
+total_time = 160 
 
 def get_checkins(ll):
     # Construct the client object
@@ -27,7 +27,7 @@ def get_checkins(ll):
 def get_many_checkins(lls, total_time, names):
     all_checkins = {}
     remaining_seconds = total_time
-    interval = 15
+    interval = 20
 
     while remaining_seconds > 0:
         added = 0
@@ -79,5 +79,9 @@ names = ['NY', 'Brooklyn', 'Staten Island', 'Queens', 'Bronx']
 
 all_time = 9000000000000000000
 while all_time > 0:
-    run(lls, names)
-    all_time -= 30
+    try:
+        run(lls, names)
+        all_time -= 30
+
+    except: pass
+    
