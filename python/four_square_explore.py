@@ -8,8 +8,8 @@ client_secret = 'C2RXMQINBN3ZAOBX3QIOBTYVGXDGWYTPRO5GKNWL0AOC4T12'#os.environ['F
 redirect = 'http://sg20141.sb02.stations.graphenedb.com:24789/browser/'#os.environ['FOURSQUARE_REDIRECT']
 
 query = 'topPicks'
-#queries = ['food', 'drinks', 'coffee', 'shops', 'arts', 'outdoors', 'sights', 'specials', 'topPicks']
-queries = ['arts', 'sights', 'specials', 'topPicks']
+queries = ['food', 'drinks', 'coffee', 'shops', 'arts', 'outdoors', 'sights', 'specials', 'topPicks']
+#queries = ['arts', 'sights', 'specials', 'topPicks']
 
 
 # Construct the client object
@@ -31,7 +31,7 @@ def get_checkins(ll, query):
 def get_venue(check_id):
     # Get client response
     r = client.venues(check_id)
-    print r
+    #print r
     # Construct an empty dictionary for the properties
     properties = {}
     # Get the information of the venue
@@ -59,17 +59,11 @@ def get_venue(check_id):
     # return the dictionary of properties
     return properties
 
-sw = '22.1538, 113.8352'
-ne = '22.5622, 114.4416'
-
-if __name__=='__main__':
-    # Construct a dictionary for all the checkins
-    
-
+def crawl_4square(query):
     # since the api only returns up to 50 places at the time,
     # we construct a series of locations, and loop through them to scrape it
-    sn_range = list(drange(22.1538, 22.5622, .003)) # 50.5 mts radius
-    we_range = list(drange(113.8352, 114.3416, .003)) # 50.5 mts radius # 113.8352
+    we_range = list(drange(-74.290503, -73.702553, .003)) # 50.5 mts radius
+    sn_range = list(drange(40.482003, 40.918004, .003)) # 50.5 mts radius # 113.8352
     print len(sn_range), len(we_range)
     # for every latitude
     for n in sn_range[134:]:
@@ -94,8 +88,22 @@ if __name__=='__main__':
                 #print len(all_checkins)
                 # write the json to a file
                 if len(all_checkins) > 0:
-                    with open( '/Volumes/XP/Documents and Settings/Carlos Emilio/My Documents/sg2014/4sq/topPicks/%s,%sfour_explore.json' %(str(sn_range.index(n)), str(we_range.index(e))), 'w' ) as f:
+                    print 'places added: ', len(all_checkins)
+                    with open( 'foursquare/%s/%s,%sfour_explore.json' %(query, str(sn_range.index(n)), str(we_range.index(e))), 'w' ) as f:
                         f.write(json.dumps(all_checkins))
-                    print 333333838383838383838383838383838383838383838383838
             except: pass
+
+sw = '22.1538, 113.8352'
+ne = '22.5622, 114.4416'
+sw = '-74.290503, 40.482003'
+ne = '-73.702553, 40.918004'
+
+
+if __name__=='__main__':
+    # Construct a dictionary for all the checkins
+    for query in queries:
+        querying = crawl_4square(query)
+    
+
+
 
