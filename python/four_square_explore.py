@@ -89,11 +89,7 @@ def crawl_4square(query):
                 # write the json to a file
                 if len(all_checkins) > 0:
                     print 'places added: ', len(all_checkins)
-<<<<<<< HEAD
                     with open( 'foursquare_explore/%s/%s,%sfour_explore.json' %(query, str(sn_range.index(n)), str(we_range.index(e))), 'w' ) as f:
-=======
-                    with open( 'foursquare/%s/%s,%sfour_explore.json' %(query, str(sn_range.index(n)), str(we_range.index(e))), 'w' ) as f:
->>>>>>> 6d1b02c726c6e709c923ccb8ae571f8395623319
                         f.write(json.dumps(all_checkins))
             except: pass
 
