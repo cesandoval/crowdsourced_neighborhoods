@@ -1,0 +1,21 @@
+CROWDSOURCED NEIGHBORHOODS:
+By: Wenfei Xu, Phil Cheng, Hector Flores, Carlos Sandoval Olascoaga
+
+Due to the large scope of the project, the project was broken down into 7 ipython notebooks, all sequentially named according to the process.
+
+The sequential filenames are:
+00. Overview.ipynb: Project Overview, References Work, Libraries and Summary of Analyses
+01. GIS_DataPrep.ipynb: Processing geographical information (GIS) data for mapping urban statistics 
+02. Web_scrapping.ipynb: Processing social media data.
+03. Semantic_analysis.ipynb: Semantic data analysis of social media data through machine learning
+04. Exploratory_analysis.ipynb: Exploratory Data Analysis of urban statistics and datasets.
+05. Final_analysis.ipynb: Development of neighborhood scores through analysis of several data sources.
+06. Web-visualization.ipynb: Code written in D3 to visualize the overall results of the neighborhood score on a webmap.
+
+All the files are executed. To be executed, the files would need additional directories and files. All the additional data sources are in separate folders within the project directory which have been referenced with relative paths.
+
+The ipython notebooks with the required directories for execution are on: https://drive.google.com/folderview?id=0B7-4LRflMYObRkttWTcxY0lZWWM&usp=sharing. If these are downloaded and placed on the same folder, they can be executed.
+
+All the files (including GIS) are hosted on: https://drive.google.com/folderview?id=0B7-4LRflMYObQ3RjQVR5cTZldmc&usp=sharing
+
+The code of the project is hosted on: https://github.com/cesandoval/crowdsourced_neighborhoods
